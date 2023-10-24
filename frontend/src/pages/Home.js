@@ -1,21 +1,21 @@
 import { useEffect } from "react"
-import {useWorkoutsContext} from "../hooks/useWorkoutsContext"
+import {useRatingsContext} from "../hooks/useRatingsContext"
 
-import WorkoutDetails from "../components/WorkoutDetails"
-import WorkoutForm from "../components/WorkoutForm"
+import RatingDetails from "../components/RatingDetails"
+import RatingForm from "../components/RatingForm"
 
 const Home = () => {
 
-  const{workouts, dispatch} = useWorkoutsContext()
+  const{ratings, dispatch} = useRatingsContext()
 
   useEffect(() => {
     const fetchWorkouts = async () => {
-        const response = await fetch('/api/workouts')
+        const response = await fetch('/api/ratings')
         const json = await response.json()
 
         if(response.ok) {
             dispatch({
-                type: 'SET_WORKOUTS',
+                type: 'SET_RATINGS',
                 payload: json
             })
         }
@@ -27,11 +27,11 @@ const Home = () => {
   return (
     <div className ="home">
         <div className = "workouts">
-            {workouts && workouts.map((workout)=>(
-                <WorkoutDetails key = {workout._id} workout = {workout}/>
+            {ratings && ratings.map((rating)=>(
+                <RatingDetails key = {rating._id} rating = {rating}/>
             ))}
         </div>
-        <WorkoutForm/>
+        <RatingForm/>
     </div>
   )
 }

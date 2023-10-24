@@ -1,21 +1,21 @@
 import { useState } from "react"
-import { useWorkoutsContext } from "../hooks/useWorkoutsContext"
+import { useRatingsContext } from "../hooks/useRatingsContext"
 
-const WorkoutForm = () => {
-  const {dispatch} = useWorkoutsContext()
+const RatingForm = () => {
+  const {dispatch} = useRatingsContext()
   const [title, setTitle] = useState('')
-  const [load, setLoad] = useState('')
-  const [reps, setReps] = useState('')
+  const [stars, setStars] = useState('')
+  const [review, setReview] = useState('')
   const [error, setError] = useState(null)
   const [emptyFields, setEmptyFields] = useState([])
 
   const handleSubmit = async(e) => {
     e.preventDefault()
-    const workout = {title, load, reps}
+    const rating = {title, stars, review}
 
-    const response = await fetch('/api/workouts', {
+    const response = await fetch('/api/ratings', {
         method: 'POST',
-        body: JSON.stringify(workout),
+        body: JSON.stringify(rating),
         headers: {
             "Content-Type":"application/json"
         }
@@ -29,20 +29,20 @@ const WorkoutForm = () => {
 
     if(response.ok) {
         setTitle('')
-        setLoad('')
-        setReps('')
+        setStars('')
+        setReview('')
         setError(null)
         setEmptyFields([])
-        console.log("New workout add", json)
-        dispatch({type: 'CREATE_WORKOUT', payload: json})
+        console.log("New rating add", json)
+        dispatch({type: 'CREATE_RATING', payload: json})
     }
 
   }
 
   return (
     <form className = "create" onSubmit = {handleSubmit}> 
-        <h3>Add a New Workout</h3>
-        <label>Excersize Title:</label>
+        <h3>Add a New Rating</h3>
+        <label>Rating Title:</label>
         <input 
             type = "text"
             onChange = {(e)=> setTitle(e.target.value)}
@@ -51,28 +51,28 @@ const WorkoutForm = () => {
             >
         </input>
 
-        <label>Load (in kg):</label>
+        <label>Stars:</label>
         <input 
             type = "number"
-            onChange = {(e)=> setLoad(e.target.value)}
-            value = {load}
+            onChange = {(e)=> setStars(e.target.value)}
+            value = {stars}
             className={emptyFields.includes('load')?'error':''}
             >
         </input>
 
-        <label>Reps: </label>
+        <label>Review: </label>
         <input 
-            type = "number"
-            onChange = {(e)=> setReps(e.target.value)}
-            value = {reps}
+            type = "text"
+            onChange = {(e)=> setReview(e.target.value)}
+            value = {review}
             className={emptyFields.includes('reps')?'error':''}
             >
 
         </input>
-        <button>Add Workout</button>
+        <button>Add Rating</button>
         {error && <div className = "error">{error}</div>}
     </form>
   )
 }
 
-export default WorkoutForm
+export default RatingForm
