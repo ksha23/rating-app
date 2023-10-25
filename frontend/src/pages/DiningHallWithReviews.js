@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import RatingDetails from './RatingDetails';
+import {useRatingsContext} from "../hooks/useRatingsContext"
+import RatingDetails from '../components/RatingDetails';
 
 const DiningHallWithReviews = () => {
   const { id } = useParams();
-  const [reviews, setReviews] = useState([]);
+  const {ratings, dispatch} = useRatingsContext();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -16,10 +17,13 @@ const DiningHallWithReviews = () => {
             'Content-Type': 'application/json',
           },
         });
-
+        const data = await response.json();
+        
         if (response.ok) {
-          const data = await response.json();
-          setReviews(data);
+          dispatch({
+            type: 'SET_RATINGS',
+            payload: data
+          });
         } else {
           console.error('Error fetching dining hall data');
         }
@@ -29,14 +33,14 @@ const DiningHallWithReviews = () => {
     };
 
     fetchData();
-  }, [id]);
+  }, [dispatch]);
 
   return (
     <div>
       <h2>Reviews</h2>
-      {reviews.map((review) => (
-        <div key={review._id}> {/* Added a unique key */}
-          <RatingDetails rating={review} /> 
+      {ratings && ratings.map((rating) => (
+        <div key={rating._id}> {/* Added a unique key */}
+          <RatingDetails rating={rating} /> 
         </div>
       ))}
     </div>

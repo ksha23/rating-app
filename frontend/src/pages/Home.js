@@ -9,7 +9,7 @@ const Home = () => {
   const{ratings, dispatch} = useRatingsContext()
 
   useEffect(() => {
-    const fetchWorkouts = async () => {
+    const fetchRatings = async () => {
         const response = await fetch('/api/ratings')
         const json = await response.json()
 
@@ -21,7 +21,7 @@ const Home = () => {
         }
     }
 
-    fetchWorkouts()
+    fetchRatings()
   }, [dispatch])
 
   return (
