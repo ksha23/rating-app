@@ -21,7 +21,7 @@ const RatingDetails = ({rating}) => {
         <p><strong>Stars: </strong>{'★'.repeat(rating.stars)}</p>
         <p><strong>Rating: </strong>{rating.review}</p>
         <br></br>
-        <p font-size = "5px">{formatDistanceToNow(new Date(rating.createdAt), {addSuffix: true})}</p>
+        <p fontSize = "5px">{formatDistanceToNow(new Date(rating.createdAt), {addSuffix: true})}</p>
         <span className = "material-symbols-outlined" onClick = {handleClick}>delete</span>
     </div>
   )

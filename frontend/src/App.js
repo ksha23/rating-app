@@ -1,6 +1,8 @@
 import {BrowserRouter, Routes, Route} from "react-router-dom"
 import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
+import DiningHall from "./pages/DiningHall";
+import DiningHallWithReviews from "./components/DiningHallWithReviews";
 
 function App() {
   return (
@@ -13,6 +15,12 @@ function App() {
               path = "/"
               element = {<Home/>}
             />
+            <Route
+              path = "/halls"
+              element = {<DiningHall/>}
+            />
+            <Route path="/dininghall/:id" element={<DiningHallWithReviews />} /> {/* Corrected component */}
+
           </Routes>
         </div>
       </BrowserRouter>

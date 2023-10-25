@@ -1,0 +1,28 @@
+/* DiningDetails.css */
+  .dining-details-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+    justify-content: center; /* Center content vertically */
+    text-align: center;
+  }
+  
+  .dining-details img {
+    width: 50%;
+    height: auto; /* Set a fixed height for the images */
+    object-fit: cover;
+    border-radius: 5%;
+  }
+  
+  .dining-details h4 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 10px; /* Add some spacing between image and text */
+  }
+  
+  .dining-details p {
+    margin-top: 10px; /* Add spacing between each <p> tag */
+  }
+  
+  /* Add more CSS rules for other elements in your component */
+  

@@ -5,7 +5,7 @@ const {
     createRating,
     deleteRating,
     updateRating,
-} = require("../controllers/Controller")
+} = require("../controllers/reviewController")
 
 const router = express.Router()
 

@@ -1,6 +1,8 @@
 const express = require("express")
 require("dotenv").config()
 const ratingRoutes = require("./routes/RatingRouter")
+const diningHallRoutes = require("./routes/DiningHallRouter")
+
 const mongoose = require("mongoose")
 
 const app = express()
@@ -14,6 +16,7 @@ app.use((req, res, next) => {
 })
 
 app.use('/api/ratings', ratingRoutes)
+app.use('/api/diningHalls', diningHallRoutes)
 
 mongoose.connect(process.env.MONGO_URI)
     .then(()=> {

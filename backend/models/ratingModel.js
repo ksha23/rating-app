@@ -6,6 +6,10 @@ const ratingSchema = new Schema( {
         type: String,
         required: true
     },
+    picture: {
+        type: String,
+        required: false
+    },
     stars: {
         type: Number,
         required: true
