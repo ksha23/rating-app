@@ -1,5 +1,7 @@
 # UW-Madison Dining Hall Rating Website
+
 ## Local Setup
+
 1. git clone locally
 2. setup mongoDB either through Atlas or locally
 3. cd into backend/models and run "node seedDatabase.js" to seed database (NOTE: THIS DELETES ALL DININGHALLS AND RATINGS IF THEY CURRENTLY EXIST!)
@@ -10,12 +12,12 @@
 8. for the frontend, run "npm start"
 
 ## Things to do:
-1. Add global context for dining hall reviews?
-2. UI and CSS
-3. Sign in
-4. Sorting
-5. Searching
-6. Updating overall review count and average review
-7. Removing review references (maybe?)
-8. Adding location data (intergrate google maps)
-9. Add upvote and downvote on reviews
+
+1. UI and CSS
+2. Sign in?
+3. Sorting
+4. Searching
+5. Updating overall review count and average review
+6. Removing review references (maybe?)
+7. Adding location data (intergrate google maps)
+8. Add upvote and downvote on reviews
