@@ -14,8 +14,7 @@
 ## Things to do:
 
 1. UI and CSS
-2. Make it so the reviews stats update when deleting
-3. Sorting
-4. Searching
-5. Removing review references (maybe?)
-6. Add upvote and downvote on reviews
+2. Sorting
+3. Searching
+4. Removing review references (maybe?)
+5. Add upvote and downvote on reviews
