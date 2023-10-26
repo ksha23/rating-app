@@ -10,6 +10,7 @@ const RatingForm = () => {
   const [title, setTitle] = useState("");
   const [stars, setStars] = useState("");
   const [review, setReview] = useState("");
+  const [hallID, setSelectedDiningHallID] = useState("");
   const [error, setError] = useState(null);
   const [emptyFields, setEmptyFields] = useState([]);
 
@@ -58,7 +59,7 @@ const RatingForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const rating = { title, stars, review };
+    const rating = { title, stars, review, hallID };
 
     const responseRating = await fetch("/api/ratings", {
       method: "POST",
@@ -80,7 +81,6 @@ const RatingForm = () => {
       setReview("");
       setError(null);
       setEmptyFields([]);
-      console.log("New rating added", jsonRating);
       dispatch({ type: "CREATE_RATING", payload: jsonRating });
     }
 
@@ -115,7 +115,14 @@ const RatingForm = () => {
       <label>Dining Hall:</label>
       <select
         value={selectedDiningHall}
-        onChange={(e) => setSelectedDiningHall(e.target.value)}
+        onChange={(e) => {
+          setSelectedDiningHall(e.target.value);
+
+          const selectedHall = diningHalls.find(
+            (hall) => hall._id === e.target.value
+          );
+          setSelectedDiningHallID(selectedHall ? selectedHall._id : "");
+        }}
       >
         <option value="">Select a dining hall</option>
         {diningHalls.map((hall) => (
