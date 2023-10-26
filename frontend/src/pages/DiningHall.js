@@ -20,11 +20,9 @@ const DiningHall = () => {
   
     return (
       <div className ="home">
-          <div className = "workouts">
               {halls && halls.map((hall)=>(
                   <DiningDetails key = {hall._id} diningHall = {hall}/>
               ))}
-          </div>
       </div>
     )
   }

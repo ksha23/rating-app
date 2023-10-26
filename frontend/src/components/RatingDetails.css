@@ -1,0 +1,43 @@
+/* RatingDetails.css */
+
+.rating-details-container {
+  max-width: 700px;
+  padding: 10px;
+  margin: 20px;
+}
+.rating-details {
+    background: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 20px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    width: 100%;
+  }
+  
+  .rating-title {
+    font-size: 1.2em;
+    color: #1aac83; /* Primary color */
+  }
+  
+  .stars {
+    font-size: 1.1em;
+    color: #007BFF; /* Blue color */
+  }
+  
+  .rating-text {
+    font-size: 1em;
+    color: #333; /* Default text color */
+  }
+  
+  .time-ago {
+    font-size: 0.9em;
+    color: #555; /* Secondary text color */
+  }
+  
+  .delete-button {
+    cursor: pointer;
+    color: #e7195a; /* Error color */
+    text-decoration: underline;
+  }
+  

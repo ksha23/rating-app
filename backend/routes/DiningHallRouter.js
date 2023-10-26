@@ -1,6 +1,7 @@
 const express = require("express")
 const {
     getDiningHalls,
+    getDiningHall,
     getRatingsByDiningHallId,
     updateReviewList
 
@@ -9,6 +10,8 @@ const {
 const router = express.Router()
 
 router.get('/', getDiningHalls)
+
+router.get('/single/:id', getDiningHall)
 
 router.get('/:id', getRatingsByDiningHallId)
 
