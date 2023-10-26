@@ -14,10 +14,8 @@
 ## Things to do:
 
 1. UI and CSS
-2. Sign in?
+2. Make it so the reviews stats update when deleting
 3. Sorting
 4. Searching
-5. Updating overall review count and average review
-6. Removing review references (maybe?)
-7. Adding location data (intergrate google maps)
-8. Add upvote and downvote on reviews
+5. Removing review references (maybe?)
+6. Add upvote and downvote on reviews

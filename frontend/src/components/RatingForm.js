@@ -14,6 +14,32 @@ const RatingForm = () => {
   const [emptyFields, setEmptyFields] = useState([]);
 
   useEffect(() => {
+    // const updateDiningHallStats = async (id, stars) => {
+    //   try {
+    //     const response = await fetch(`/api/diningHalls/stats/${id}`, {
+    //       method: "PATCH",
+    //       headers: {
+    //         "Content-Type": "application/json",
+    //       },
+    //       body: JSON.stringify({ stars }),
+    //     });
+
+    //     if (response.ok) {
+    //       console.log("Dining hall stats updated successfully.");
+    //       // You can handle success here, such as updating the UI.
+    //     } else {
+    //       console.error("Failed to update dining hall stats.");
+    //       // Handle the error case here.
+    //     }
+    //   } catch (error) {
+    //     console.error(
+    //       "An error occurred while updating dining hall stats:",
+    //       error
+    //     );
+    //     // Handle the error case here.
+    //   }
+    // };
+
     const fetchDiningHalls = async () => {
       try {
         const response = await fetch("/api/diningHalls");
