@@ -68,7 +68,7 @@ const updateReviewList = async (req, res) => {
     }
 
     // Add the new review data to the `reviews` property
-    diningHall.reviews.push(reviewData);
+    diningHall.reviews.unshift(reviewData);
     const oldStars = diningHall.averageReview;
     const oldTotalReviews = diningHall.numberOfReviews;
     const stars = reviewData.stars;
@@ -87,44 +87,9 @@ const updateReviewList = async (req, res) => {
   }
 };
 
-// const updateReviewStats = async (req, res) => {
-//   const { id } = req.params;
-//   const { stars } = req.body;
-
-//   if (!mongoose.Types.ObjectId.isValid(id)) {
-//     return res.status(404).json({ error: "No such dining hall" });
-//   }
-
-//   try {
-//     // Find the dining hall by its ID
-//     const diningHall = await DiningHall.findById(id);
-
-//     if (!diningHall) {
-//       return res.status(404).json({ error: "No such dining hall" });
-//     }
-
-//     const oldStars = diningHall.averageReview;
-//     const oldTotalReviews = diningHall.numberOfReviews;
-//     const newStars =
-//       (oldStars * oldTotalReviews + stars) / (oldTotalReviews + 1);
-
-//     diningHall.averageReview = newStars;
-//     diningHall.numberOfReviews = oldTotalReviews + 1;
-//     await diningHall.save();
-
-//     return res
-//       .status(200)
-//       .json({ message: "Review stats updated successfully" });
-//   } catch (error) {
-//     return res.status(500).json({ error: error.message });
-//   }
-// };
-
 module.exports = {
   getDiningHalls,
   getDiningHall,
   getRatingsByDiningHallId,
   updateReviewList,
-  // updateReviewStats,
-  // updateRating
 };
